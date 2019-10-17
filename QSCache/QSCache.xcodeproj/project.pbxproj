@@ -14,6 +14,8 @@
 		AE05DA1523580368003020A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE05DA1323580368003020A6 /* LaunchScreen.storyboard */; };
 		AE05DA1823580368003020A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05DA1723580368003020A6 /* main.m */; };
 		AE05DA2223580368003020A6 /* QSCacheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05DA2123580368003020A6 /* QSCacheTests.m */; };
+		AE05DA2E235805D6003020A6 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AE05DA2D235805D6003020A6 /* libsqlite3.0.tbd */; };
+		AE05DA3223580663003020A6 /* QSDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05DA3123580663003020A6 /* QSDatabase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,9 @@
 		AE05DA1D23580368003020A6 /* QSCacheTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QSCacheTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE05DA2123580368003020A6 /* QSCacheTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QSCacheTests.m; sourceTree = "<group>"; };
 		AE05DA2323580368003020A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE05DA2D235805D6003020A6 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		AE05DA3023580663003020A6 /* QSDatabase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QSDatabase.h; sourceTree = "<group>"; };
+		AE05DA3123580663003020A6 /* QSDatabase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QSDatabase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE05DA2E235805D6003020A6 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +72,7 @@
 				AE05DA0723580367003020A6 /* QSCache */,
 				AE05DA2023580368003020A6 /* QSCacheTests */,
 				AE05DA0623580367003020A6 /* Products */,
+				AE05DA2C235805D6003020A6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +88,7 @@
 		AE05DA0723580367003020A6 /* QSCache */ = {
 			isa = PBXGroup;
 			children = (
+				AE05DA2F23580601003020A6 /* QSCache */,
 				AE05DA0823580367003020A6 /* AppDelegate.h */,
 				AE05DA0923580367003020A6 /* AppDelegate.m */,
 				AE05DA0B23580367003020A6 /* ViewController.h */,
@@ -103,6 +111,23 @@
 			path = QSCacheTests;
 			sourceTree = "<group>";
 		};
+		AE05DA2C235805D6003020A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE05DA2D235805D6003020A6 /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AE05DA2F23580601003020A6 /* QSCache */ = {
+			isa = PBXGroup;
+			children = (
+				AE05DA3023580663003020A6 /* QSDatabase.h */,
+				AE05DA3123580663003020A6 /* QSDatabase.m */,
+			);
+			path = QSCache;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -110,8 +135,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE05DA2623580368003020A6 /* Build configuration list for PBXNativeTarget "QSCache" */;
 			buildPhases = (
-				AE05DA0123580367003020A6 /* Sources */,
 				AE05DA0223580367003020A6 /* Frameworks */,
+				AE05DA0123580367003020A6 /* Sources */,
 				AE05DA0323580367003020A6 /* Resources */,
 			);
 			buildRules = (
@@ -203,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE05DA3223580663003020A6 /* QSDatabase.m in Sources */,
 				AE05DA0D23580367003020A6 /* ViewController.m in Sources */,
 				AE05DA1823580368003020A6 /* main.m in Sources */,
 				AE05DA0A23580367003020A6 /* AppDelegate.m in Sources */,
