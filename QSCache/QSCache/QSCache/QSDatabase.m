@@ -133,8 +133,8 @@ static sqlite3 *db = nil;
             // select 某个字段时，获取结果从0开始， 如果是select * 时，从1开始，返回下标对应的列
             //const char*op = sqlite3_column_text(stmt,0);
             const char *valueBytes = sqlite3_column_blob(stmt, 0);
-            //int size = sqlite3_column_bytes(stmt,0); //获取长度
-            resultData = [NSData dataWithBytes:valueBytes length:strlen(valueBytes)];
+            int size = sqlite3_column_bytes(stmt,0); //获取长度
+            resultData = [NSData dataWithBytes:valueBytes length:size];
         }
     }
     sqlite3_finalize(stmt);
@@ -202,6 +202,7 @@ static sqlite3 *db = nil;
             NSLog(@"=== 数据库存储目录: %@", modulePath);
         }
     }
+    NSLog(@"=== 数据库存储目录: %@", modulePath);
     
     NSString *storagePath = [modulePath stringByAppendingPathComponent:@"QSDB.sqlite"];
     sqlite3_open(storagePath.UTF8String, &db);
