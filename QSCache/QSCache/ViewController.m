@@ -7,7 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "QSCache/QSDatabase.h"
+#import "QSDatabase.h"
+#import "QSCache.h"
 
 //将NSArray转化为NSData类型 ：NSData *data = [NSKeyedArchiver archivedDataWithRootObject:Array];
 //将NSData转化为NSArray类型 ：NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
@@ -21,7 +22,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self testSqlite];
+    
+    [[QSCache sharedInstance] setObject:nil withKey:@"k"];
+    
+//    [self testSqlite];
 }
 
 

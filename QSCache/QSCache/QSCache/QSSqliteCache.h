@@ -1,5 +1,5 @@
 //
-//  QSCache.h
+//  QSSqliteCache.h
 //  QSCache
 //
 //  Created by wuqiushan on 2019/10/17.
@@ -10,13 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface QSCache : NSObject
-
-+ (instancetype)sharedInstance;
-//- (nullable id<NSCoding>)getValueForKey:(NSString *)key;
-//- (void)setValue:(nullable id<NSCoding>)value key:(NSString *)key;
-//- (void)removeValueForKey:(NSString *)key;
-//- (void)removeAllValue;
+@interface QSSqliteCache : NSObject
 
 - (nullable id<NSCoding>)getObjectWithKey:(NSString *)key;
 - (void)setObject:(nullable id<NSCoding>)value withKey:(NSString *)key;
