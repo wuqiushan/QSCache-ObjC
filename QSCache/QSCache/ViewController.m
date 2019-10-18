@@ -22,8 +22,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    [[QSCache sharedInstance] setObject:nil withKey:@"k"];
+//    NSData *test = [[NSData alloc] init];
+//    [test encodeWithCoder:nil];
+    [[QSCache sharedInstance] setObject:[[NSData alloc] init] withKey:@"k"];
     
 //    [self testSqlite];
 }

@@ -39,11 +39,22 @@
     return nil;
 }
 
-- (void)setObject:(nullable id<NSCoding>)value withKey:(NSString *)key {
+/**
+ 设置数据
+ 1.存入内存(直接存对象)，存在先替换，不存在增加
+ 2.存入数据库或磁盘文件(存NSData)，存在先替换，不存在增加
+
+ @param object 需要存储的对象
+ @param key 需要存储的键
+ */
+- (void)setObject:(nullable id<NSCoding>)object withKey:(NSString *)key {
     
-    Person *person = [[Person alloc] init];
-    person.name = @"wuqiushan123";
-    person.age = 293;
+    // 存储对象
+//    Person *person = [[Person alloc] init];
+//    person.name = @"wuqiushan123";
+//    person.age = 293;
+//    [self.sqliteCache setObject:person withKey:@"person"];
+//    id personR = [self.sqliteCache getObjectWithKey:@"person"];
     
 //    NSDictionary *testdic = @{@"key1": @"value1", @"key2": @"value2"};
 //    [self.sqliteCache setObject:@"12" withKey:@"testkey"];
@@ -54,8 +65,12 @@
 //    id test2 = [self.sqliteCache getObjectWithKey:@"testkey1"];
 //    id testdic1 = [self.sqliteCache getObjectWithKey:@"testdic"];
     
-    [self.sqliteCache setObject:person withKey:@"person"];
-    id personR = [self.sqliteCache getObjectWithKey:@"person"];
+//    [self.memoryCache setObject:@"123" withKey:@"memory"];
+//    [self.memoryCache setObject:@"123" withKey:@"memory"];
+    
+    NSData *testData = [NSKeyedArchiver archivedDataWithRootObject:@"234"];
+    [self.memoryCache setObject:testData withKey:@"memoryData"];
+    [self.memoryCache setObject:testData withKey:@"memoryData"];
     
     NSLog(@"3");
 }

@@ -13,13 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface QSCache : NSObject
 
 + (instancetype)sharedInstance;
-//- (nullable id<NSCoding>)getValueForKey:(NSString *)key;
-//- (void)setValue:(nullable id<NSCoding>)value key:(NSString *)key;
-//- (void)removeValueForKey:(NSString *)key;
-//- (void)removeAllValue;
 
 - (nullable id<NSCoding>)getObjectWithKey:(NSString *)key;
-- (void)setObject:(nullable id<NSCoding>)value withKey:(NSString *)key;
+- (void)setObject:(nullable id<NSCoding>)object withKey:(NSString *)key;
 - (void)removeObjectWithKey:(NSString *)key;
 - (void)removeAllObject;
 
