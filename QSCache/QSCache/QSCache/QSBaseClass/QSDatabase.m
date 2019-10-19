@@ -11,11 +11,24 @@
 
 static sqlite3 *db = nil;
 
+@interface QSDatabase()
+/** 存储Sqlite的路径 */
+@property (nonatomic, copy) NSString *modulePath;
+@end
+
 @implementation QSDatabase
 
+- (instancetype)initWithStoragePath:(NSString *)path
+{
+    self = [super init];
+    if (self) {
+        self.modulePath = path;
+    }
+    return self;
+}
 
 #pragma mark 创建表
-- (void)create {
+- (void)createTable {
     
     if (![self open]) {
         return ;
@@ -36,6 +49,32 @@ static sqlite3 *db = nil;
     
     [self close];
 }
+
+#pragma mark 删除表
+- (void)dropTable {
+    
+    if (![self open]) {
+        return ;
+    }
+    
+    NSString *sql = @"DROP TABLE QSTable";
+    int result = sqlite3_exec(db, sql.UTF8String, nil, nil, nil);
+    if (result == SQLITE_OK) {
+        NSLog(@"QSTable数据库表删除成功");
+    }
+    else {
+        NSLog(@"QSTable数据库表删除失败");
+    }
+    
+    [self close];
+}
+
+#pragma mark 清空表
+- (void)clearTable {
+    [self dropTable];
+    [self createTable];
+}
+
 
 #pragma mark 插入数据
 - (void)insertValue:(NSData *)data key:(NSString *)key {
@@ -179,18 +218,22 @@ static sqlite3 *db = nil;
 }
 
 
-#pragma mark 打开数据库 保存沙盒的 ../Documents/QSCache/QSDB.sqlite
+#pragma mark 打开数据库 默认路径保存沙盒的 ../Documents/QSCache/QSDB.sqlite
 - (sqlite3 *)open {
     
     /** 打开了就不再打开 */
     if (db) { return db; }
     
-    NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *modulePath = [docPath stringByAppendingPathComponent:@"QSCache"];
+    /** 路径不对就使用默认路径 */
+    if (self.modulePath.length < 1) {
+        NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+        self.modulePath = [docPath stringByAppendingPathComponent:@"QSCache"];
+    }
+    
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    if (![fileManager fileExistsAtPath:modulePath]) {
+    if (![fileManager fileExistsAtPath:self.modulePath]) {
         NSError *error = nil;
-        [fileManager createDirectoryAtPath:modulePath
+        [fileManager createDirectoryAtPath:self.modulePath
                withIntermediateDirectories:YES
                                 attributes:nil
                                      error:&error];
@@ -199,12 +242,12 @@ static sqlite3 *db = nil;
             return nil;
         }
         else {
-            NSLog(@"=== 数据库存储目录: %@", modulePath);
+            NSLog(@"=== 数据库存储目录: %@", self.modulePath);
         }
     }
-    NSLog(@"=== 数据库存储目录: %@", modulePath);
+    //NSLog(@"=== 数据库存储目录: %@", self.modulePath);
     
-    NSString *storagePath = [modulePath stringByAppendingPathComponent:@"QSDB.sqlite"];
+    NSString *storagePath = [self.modulePath stringByAppendingPathComponent:@"QSDB.sqlite"];
     sqlite3_open(storagePath.UTF8String, &db);
     
     return db;

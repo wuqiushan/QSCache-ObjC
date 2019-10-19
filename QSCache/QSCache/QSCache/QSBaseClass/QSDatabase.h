@@ -12,8 +12,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QSDatabase : NSObject
 
+/** 初始化，指提存储路径 */
+- (instancetype)initWithStoragePath:(NSString *)path;
+
 #pragma mark 创建表
-- (void)create;
+- (void)createTable;
+#pragma mark 删除表
+- (void)dropTable;
+#pragma mark 清空表
+- (void)clearTable;
+
 #pragma mark 插入数据
 - (void)insertValue:(NSData *)data key:(NSString *)key;
 #pragma mark 删除数据
