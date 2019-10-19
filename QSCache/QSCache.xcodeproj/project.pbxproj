@@ -15,7 +15,6 @@
 		AE05DA1823580368003020A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05DA1723580368003020A6 /* main.m */; };
 		AE05DA2223580368003020A6 /* QSCacheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05DA2123580368003020A6 /* QSCacheTests.m */; };
 		AE05DA2E235805D6003020A6 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AE05DA2D235805D6003020A6 /* libsqlite3.0.tbd */; };
-		AE05DA3D23587A02003020A6 /* QSDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05DA3923587A02003020A6 /* QSDiskCache.m */; };
 		AE05DA3E23587A02003020A6 /* QSMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05DA3C23587A02003020A6 /* QSMemoryCache.m */; };
 		AE05DA4123587A41003020A6 /* QSCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05DA4023587A41003020A6 /* QSCache.m */; };
 		AE05DA4423588A0F003020A6 /* QSSqliteCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05DA4323588A0F003020A6 /* QSSqliteCache.m */; };
@@ -50,8 +49,6 @@
 		AE05DA2123580368003020A6 /* QSCacheTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QSCacheTests.m; sourceTree = "<group>"; };
 		AE05DA2323580368003020A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE05DA2D235805D6003020A6 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		AE05DA3923587A02003020A6 /* QSDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSDiskCache.m; sourceTree = "<group>"; };
-		AE05DA3A23587A02003020A6 /* QSDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSDiskCache.h; sourceTree = "<group>"; };
 		AE05DA3B23587A02003020A6 /* QSMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSMemoryCache.h; sourceTree = "<group>"; };
 		AE05DA3C23587A02003020A6 /* QSMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSMemoryCache.m; sourceTree = "<group>"; };
 		AE05DA3F23587A41003020A6 /* QSCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QSCache.h; sourceTree = "<group>"; };
@@ -148,8 +145,6 @@
 				AEA1B1E2235994B900774CD1 /* QSBaseClass */,
 				AE05DA3B23587A02003020A6 /* QSMemoryCache.h */,
 				AE05DA3C23587A02003020A6 /* QSMemoryCache.m */,
-				AE05DA3A23587A02003020A6 /* QSDiskCache.h */,
-				AE05DA3923587A02003020A6 /* QSDiskCache.m */,
 				AE05DA4223588A0F003020A6 /* QSSqliteCache.h */,
 				AE05DA4323588A0F003020A6 /* QSSqliteCache.m */,
 				AE05DA3F23587A41003020A6 /* QSCache.h */,
@@ -280,7 +275,6 @@
 				AEA1B1EA235994B900774CD1 /* QSDatabase.m in Sources */,
 				AE05DA1823580368003020A6 /* main.m in Sources */,
 				AEA1B1EB235994B900774CD1 /* QSLru.m in Sources */,
-				AE05DA3D23587A02003020A6 /* QSDiskCache.m in Sources */,
 				AE05DA0A23580367003020A6 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
