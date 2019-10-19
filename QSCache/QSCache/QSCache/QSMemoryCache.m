@@ -47,6 +47,10 @@
 
 - (void)setObject:(nullable id<NSCoding>)object withKey:(NSString *)key {
     
+    if ( (object == nil) || (key == nil) || ([key isEqualToString:@""]) ) {
+        return ;
+    }
+    
     long long fileSize = [self getLengthWithObject:object];
     [self removeObjectWithKey:key];
     [self.QSLru putKey:key value:object];
