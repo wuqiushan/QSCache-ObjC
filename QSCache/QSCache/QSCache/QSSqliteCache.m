@@ -138,7 +138,7 @@
     BOOL isSqlite = true;  /** 存储方式记录 */
     BOOL isSuccess = true; /** 存储是成功记录 */
     
-    if (objectData.length < 102400) { // 测存文件可以设置 10
+    if (objectData.length < 102400) { // 测存文件可以设置 100k
         if ([self.SqlDB isExistKey:key]) {
             [self.SqlDB updateValue:objectData key:key];
         }
